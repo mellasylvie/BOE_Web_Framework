@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+{% block title %} Respon {% endblock %}
+{% block content %}
+    
+    <head>
+        <meta http-equiv="refresh" content="5">
+    </head>
+    <!-- Dashboard -->
+    <div class="container-fluid">
+        <div class="container rounded p-3 mt-3" style="background-color: #EFF3EA;">
+
+            <div class="container p-2 mt-3 rounded">
+                <h2>Dashboard Ruangan</h2>
+                <p>Ini adalah dashboard sederhana untuk menampilkan kondisi ruangan</p>
+            </div>
+    
+            <div class="container text-center mt-2">
+                <div class="row">
+                  <div class="col">
+                    
+                    <!-- Suhu -->
+                    <div class="card text-center mb-3">
+                        <div class="card-header text-white" style="background-color: #E6B325;">
+                            <h5><i class="bi bi-thermometer-sun"></i> Suhu</h5>
+                        </div>
+                        <div class="card-body">
+                          <h2>{{suhu}} °C</h2>
+                        </div>
+                        <div class="card-footer">
+                          
+                            <!-- Status -->
+                            {% if suhu >= 28 %}
+                                <h5>Panas</h5>
+                            {% elif suhu >= 20 %}
+                                <h5>Sejuk</h5>
+                            {% else %}
+                                <h5>Dingin</h5>
+                            {% endif %}
+                        </div>
+                    </div>
+                  </div>
+        
+                  <div class="col">
+                    <!-- Tekanan -->
+                     <div class="card text-center">
+                        <div class="card-header bg-danger text-white">
+                          <h5><i class="bi bi-wind"></i> Tekanan</h5>
+                        </div>
+                        <div class="card-body">
+                          <h2>{{tekanan}} hPa</h2>
+                        </div>
+                        <div class="card-footer">
+                            <!-- Status -->
+                            {% if tekanan >= 1013 %}
+                                <h5>Tinggi</h5>
+                            {% elif suhu == 1013 %}
+                                <h5>Normal</h5>
+                            {% else %}
+                                <h5>Rendah</h5>
+                            {% endif %}                        
+    
+                        </div>
+                    </div>
+                  </div>
+        
+                  <div class="col">
+                    <div class="card text-center">
+                        <div class="card-header text-white" style="background-color: #205781;">
+                          <h5><i class="bi bi-droplet"></i> Kelembapan</h5>
+                        </div>
+                        <div class="card-body">
+                          <h2>{{kelembapan}} %</h2>
+                        </div>
+                        <div class="card-footer">
+                            <!-- Status -->
+                            {% if tekanan >= 70 %}
+                                <h5>Tinggi</h5>
+                            {% elif suhu >= 40 %}
+                                <h5>Sedang</h5>
+                            {% else %}
+                                <h5>Rendah</h5>
+                            {% endif %}   
+    
+                        </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>    
+    </div>
+{% endblock %}
